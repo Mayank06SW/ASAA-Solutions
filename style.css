@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-size: 14.8px;
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --background: #f8faff;
+  --foreground: #050b2c;
+  --card: rgba(255, 255, 255, 0.85);
+  --card-foreground: #050b2c;
+  --popover: rgba(255, 255, 255, 0.9);
+  --popover-foreground: #050b2c;
+  --primary: #005bea;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(224, 242, 254, 0.8);
+  --secondary-foreground: #0369a1;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: rgba(186, 230, 253, 0.5);
+  --accent-foreground: #0369a1;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 91, 234, 0.1);
+  --input: transparent;
+  --input-background: rgba(255, 255, 255, 0.8);
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: rgba(0, 91, 234, 0.3);
+  --radius: 1.25rem;
+  
+  --glass-background: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: 12px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --gradient-blue: linear-gradient(135deg, #005bea, #00c6fb);
+  --gradient-energy: linear-gradient(135deg, #ffa53d, #ff7e00);
+  --depth-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --depth-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --depth-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  --spatial-transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family);
+  background-image: 
+    radial-gradient(ellipse at top, rgba(0, 91, 234, 0.05), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(14, 165, 233, 0.05), transparent 50%);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+/* Custom visual utilities matching Tailwind components */
+.glass {
+  background: var(--glass-background);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+}
+
+.spatial {
+  transition: var(--spatial-transition);
+  transform-style: preserve-3d;
+}
+
+.spatial:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.gradient-text {
+  background-image: var(--gradient-blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-energy {
+  background-image: var(--gradient-energy);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 3D hover effect */
+.hover-3d {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale3d(1.02, 1.02, 1.02);
+}
+
+/* Custom Hover overrides for service card grid */
+.service-card {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover {
+  background: linear-gradient(135deg, #005bea, #00c6fb);
+  color: white !important;
+  border-color: transparent;
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 30px rgba(0, 91, 234, 0.25);
+}
+.service-card:hover * {
+  color: white !important;
+}
+.service-card:hover .icon-bg {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+.service-card:hover .icon-bg * {
+  color: white !important;
+}
+
+/* Hamburger mobile menu overlay */
+#mobile-menu-overlay {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#mobile-menu-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+#mobile-menu-overlay:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+}

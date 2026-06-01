@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Allow exceptions for essential static site files
+!index.html
+!about.html
+!consulting.html
+!support.html
+!outsourcing.html
+!industries.html
+!contact.html
+!style.css
+!main.js
+!.gitignore

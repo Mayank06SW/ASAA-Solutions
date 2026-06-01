@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASAA Solutions | Enterprise Integration Experts</title>
+  <meta name="description" content="Specialists in SYSPRO, Salesforce, and nopCommerce—building connected systems that drive real business performance.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            primary: {
+              DEFAULT: 'var(--primary)',
+              foreground: 'var(--primary-foreground)',
+            },
+            secondary: {
+              DEFAULT: 'var(--secondary)',
+              foreground: 'var(--secondary-foreground)',
+            },
+            muted: {
+              DEFAULT: 'var(--muted)',
+              foreground: 'var(--muted-foreground)',
+            },
+            accent: {
+              DEFAULT: 'var(--accent)',
+              foreground: 'var(--accent-foreground)',
+            },
+            border: 'var(--border)',
+            input: 'var(--input)',
+            ring: 'var(--ring)',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-white">
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-6">
+    <div class="max-w-7xl mx-auto">
+      <nav class="bg-white/80 backdrop-blur-xl rounded-full px-8 py-4 border border-slate-200/70 shadow-xl shadow-slate-200/50">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="sparkles" class="w-5 h-5 text-white" stroke-width="2"></i>
+              </div>
+              <div>
+                <div class="text-lg font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">
+                  ASAA Solutions
+                </div>
+                <div class="text-xs text-slate-500 font-medium">Enterprise Systems</div>
+              </div>
+            </div>
+          </a>
+
+          <ul class="hidden lg:flex items-center gap-1">
+            <li><a href="index.html" class="px-6 py-2.5 rounded-full transition-all font-medium bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/50 scale-105">Home</a></li>
+            <li><a href="about.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">About</a></li>
+            <li><a href="consulting.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Consulting</a></li>
+            <li><a href="support.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Support</a></li>
+            <li><a href="outsourcing.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Outsourcing</a></li>
+            <li><a href="industries.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Industries</a></li>
+            <li><a href="contact.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Contact</a></li>
+          </ul>
+
+
+          <div class="lg:hidden flex items-center gap-3">
+            <button id="mobile-menu-btn" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+              <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-6">
+    <div class="bg-white w-full max-w-md rounded-3xl p-8 border border-slate-200 shadow-2xl relative">
+      <button id="mobile-menu-close-btn" class="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors">
+        <i data-lucide="x" class="w-6 h-6 text-slate-700"></i>
+      </button>
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
+          <i data-lucide="sparkles" class="w-5 h-5 text-white" stroke-width="2"></i>
+        </div>
+        <div>
+          <div class="text-lg font-semibold text-slate-900">ASAA Solutions</div>
+          <div class="text-xs text-slate-500 font-medium">Enterprise Systems</div>
+        </div>
+      </div>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li><a href="index.html" class="block px-6 py-3 rounded-2xl bg-blue-50 text-blue-700 transition-colors font-medium">Home</a></li>
+        <li><a href="about.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">About</a></li>
+        <li><a href="consulting.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Consulting</a></li>
+        <li><a href="support.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Support</a></li>
+        <li><a href="outsourcing.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Outsourcing</a></li>
+        <li><a href="industries.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Industries</a></li>
+        <li><a href="contact.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Contact</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center px-6 pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0" style="background-image: linear-gradient(to right, #1e40af 1px, transparent 1px), linear-gradient(to bottom, #1e40af 1px, transparent 1px); background-size: 80px 80px;"></div>
+    </div>
+    <div class="absolute top-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 right-1/3 w-64 h-64 border-2 border-blue-200 rounded-full opacity-50"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-48 h-48 border-2 border-cyan-200 opacity-40"></div>
+
+    <div class="max-w-7xl mx-auto w-full relative z-10">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full mb-8 shadow-lg shadow-blue-500/30">
+            <i data-lucide="sparkles" class="w-4 h-4" stroke-width="2"></i>
+            <span class="text-sm font-semibold uppercase tracking-wider">Enterprise Integration Experts</span>
+          </div>
+
+          <h1 class="text-6xl md:text-7xl lg:text-8xl font-light leading-[0.95] mb-10 text-slate-900">
+            Integrations for<br />
+            <span class="font-semibold bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">Intelligent</span><br />
+            Operations
+          </h1>
+
+          <div class="flex items-center gap-4 mb-12">
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-600"></div>
+            <div class="w-8 h-1 bg-blue-300"></div>
+            <div class="w-4 h-1 bg-blue-200"></div>
+          </div>
+
+          <div>
+            <p class="text-2xl md:text-3xl text-slate-700 mb-6 leading-relaxed">
+              Specialists in <span class="font-semibold text-blue-700">SYSPRO</span>, <span class="font-semibold text-cyan-600">Salesforce</span>, and <span class="font-semibold text-blue-600">nopCommerce</span>—building connected systems that drive real business performance.
+            </p>
+
+            <p class="text-lg text-slate-600 leading-relaxed mb-12">
+              We design, implement, and optimize integrated enterprise ecosystems that align technology with operations—ensuring scalability, visibility, and measurable outcomes.
+            </p>
+
+            <div class="flex flex-wrap gap-3 mb-12">
+              <div class="flex items-center gap-2 px-5 py-2.5 bg-white border-2 border-slate-200 rounded-full hover:border-blue-500 hover:shadow-lg transition-all group">
+                <i data-lucide="shield" class="w-4 h-4 text-slate-600 group-hover:text-blue-600 transition-colors" stroke-width="2"></i>
+                <span class="text-sm font-medium text-slate-700">Enterprise Grade</span>
+              </div>
+              <div class="flex items-center gap-2 px-5 py-2.5 bg-white border-2 border-slate-200 rounded-full hover:border-blue-500 hover:shadow-lg transition-all group">
+                <i data-lucide="zap" class="w-4 h-4 text-slate-600 group-hover:text-blue-600 transition-colors" stroke-width="2"></i>
+                <span class="text-sm font-medium text-slate-700">Fast Implementation</span>
+              </div>
+              <div class="flex items-center gap-2 px-5 py-2.5 bg-white border-2 border-slate-200 rounded-full hover:border-blue-500 hover:shadow-lg transition-all group">
+                <i data-lucide="target" class="w-4 h-4 text-slate-600 group-hover:text-blue-600 transition-colors" stroke-width="2"></i>
+                <span class="text-sm font-medium text-slate-700">ROI Focused</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="contact.html" class="group flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-10 py-5 hover:shadow-2xl hover:shadow-blue-500/40 transition-all font-semibold text-lg">
+              Book a Consultation
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" stroke-width="2"></i>
+            </a>
+            <a href="consulting.html" class="flex items-center justify-center gap-3 border-2 border-slate-900 text-slate-900 px-10 py-5 hover:bg-slate-900 hover:text-white transition-all font-semibold text-lg bg-white">
+              Explore Our Services
+              <i data-lucide="arrow-right" class="w-5 h-5" stroke-width="2"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Icon Grid -->
+        <div class="hidden lg:grid grid-cols-3 gap-6">
+          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <i data-lucide="building-2" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            </div>
+            <div class="text-sm font-semibold text-slate-700">ERP</div>
+          </div>
+          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <i data-lucide="users" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            </div>
+            <div class="text-sm font-semibold text-slate-700">CRM</div>
+          </div>
+          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <i data-lucide="shopping-cart" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            </div>
+            <div class="text-sm font-semibold text-slate-700">eCommerce</div>
+          </div>
+          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-700 to-cyan-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <i data-lucide="database" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            </div>
+            <div class="text-sm font-semibold text-slate-700">Analytics</div>
+          </div>
+          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <i data-lucide="zap" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            </div>
+            <div class="text-sm font-semibold text-slate-700">Integration</div>
+          </div>
+          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <i data-lucide="settings" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            </div>
+            <div class="text-sm font-semibold text-slate-700">Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="py-24 px-6 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #60a5fa 1px, transparent 0); background-size: 50px 50px;"></div>
+    </div>
+    <div class="absolute top-10 right-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+    <div class="absolute bottom-10 left-10 w-64 h-64 bg-cyan-500 rounded-full blur-3xl opacity-20"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 px-5 py-2 bg-blue-600/20 border border-blue-400/30 rounded-full mb-6">
+          <i data-lucide="award" class="w-4 h-4 text-blue-400" stroke-width="2"></i>
+          <span class="text-sm font-semibold text-blue-300 uppercase tracking-wider">Trusted Partner</span>
+        </div>
+        <p class="text-2xl text-slate-200 max-w-4xl mx-auto leading-relaxed font-light">
+          Trusted by manufacturing and distribution organizations to modernize systems and streamline operations.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="bg-white/5 backdrop-blur-sm p-10 border-2 border-white/10 hover:border-blue-400/50 transition-all group relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="text-6xl font-light mb-3 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">15+</div>
+            <div class="text-blue-200 uppercase text-sm tracking-wider font-semibold">Years Combined Experience</div>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm p-10 border-2 border-white/10 hover:border-cyan-400/50 transition-all group relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-transparent rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="text-3xl font-semibold mb-3 text-cyan-300">ERP + CRM + eCommerce</div>
+            <div class="text-cyan-200 uppercase text-sm tracking-wider font-semibold">Integration Experts</div>
+          </div>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm p-10 border-2 border-white/10 hover:border-blue-400/50 transition-all group relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full"></div>
+          <div class="relative z-10">
+            <div class="text-6xl font-light mb-3 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">100%</div>
+            <div class="text-blue-200 uppercase text-sm tracking-wider font-semibold">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / APPROACH -->
+  <section class="py-32 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-5 gap-20 items-start">
+        <div class="lg:col-span-2">
+          <div class="sticky top-32">
+            <div class="text-sm uppercase tracking-wider text-slate-500 mb-6">Our Approach</div>
+            <h2 class="text-6xl font-light text-slate-900 leading-tight mb-6">
+              A Consulting-First<br />Approach to<br />Enterprise Systems
+            </h2>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 space-y-10">
+          <div class="border-l-4 border-slate-900 pl-8">
+            <p class="text-2xl text-slate-700 leading-relaxed">
+              We go beyond implementation. Our approach ensures that every system is aligned with your operations, adopted by your teams, and optimized for long-term performance.
+            </p>
+          </div>
+
+          <p class="text-xl text-slate-600 leading-relaxed">
+            By integrating ERP, CRM, and eCommerce platforms into a unified ecosystem, we eliminate silos, improve data flow, and enable better decision-making.
+          </p>
+
+          <div class="pt-8">
+            <a href="about.html" class="group inline-flex items-center gap-3 border-b-2 border-slate-900 pb-2 hover:gap-5 transition-all">
+              <span class="font-medium text-slate-900 text-lg">Learn More About Us</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 text-slate-900" stroke-width="1.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE CAPABILITIES -->
+  <section class="py-32 px-6 bg-gradient-to-br from-slate-50 via-blue-50/20 to-slate-50 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="mb-20">
+        <div class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full mb-6">
+          <i data-lucide="rocket" class="w-4 h-4" stroke-width="2"></i>
+          <span class="text-sm font-semibold uppercase tracking-wider">Core Capabilities</span>
+        </div>
+        <h2 class="text-7xl font-light text-slate-900 mb-6">What We Do</h2>
+        <p class="text-2xl text-slate-600 max-w-3xl font-light">
+          Comprehensive enterprise solutions that drive transformation and growth
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <!-- Service Cards -->
+        <div class="service-card group bg-white p-10 cursor-pointer transition-all relative overflow-hidden border-2 border-slate-200 hover:border-blue-300">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-blue-50 transition-all icon-bg"></div>
+          <div class="absolute top-8 right-8 text-7xl font-light opacity-10 select-none">01</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-gradient-to-br from-blue-100 to-cyan-100 relative z-10 icon-bg">
+            <i data-lucide="building-2" class="w-8 h-8 text-blue-700" stroke-width="1.5"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-slate-900 relative z-10">ERP Consulting & Implementation</h3>
+          <p class="leading-relaxed text-slate-600 relative z-10">End-to-end SYSPRO ERP services tailored for manufacturing and distribution environments.</p>
+        </div>
+
+        <div class="service-card group bg-white p-10 cursor-pointer transition-all relative overflow-hidden border-2 border-slate-200 hover:border-blue-300">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-blue-50 transition-all icon-bg"></div>
+          <div class="absolute top-8 right-8 text-7xl font-light opacity-10 select-none">02</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-gradient-to-br from-blue-100 to-cyan-100 relative z-10 icon-bg">
+            <i data-lucide="zap" class="w-8 h-8 text-blue-700" stroke-width="1.5"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-slate-900 relative z-10">System Integration & Custom Development</h3>
+          <p class="leading-relaxed text-slate-600 relative z-10">Seamless integration across ERP, CRM, eCommerce, and custom applications.</p>
+        </div>
+
+        <div class="service-card group bg-white p-10 cursor-pointer transition-all relative overflow-hidden border-2 border-slate-200 hover:border-blue-300">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-blue-50 transition-all icon-bg"></div>
+          <div class="absolute top-8 right-8 text-7xl font-light opacity-10 select-none">03</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-gradient-to-br from-blue-100 to-cyan-100 relative z-10 icon-bg">
+            <i data-lucide="trending-up" class="w-8 h-8 text-blue-700" stroke-width="1.5"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-slate-900 relative z-10">CRM Consulting</h3>
+          <p class="leading-relaxed text-slate-600 relative z-10">CRM solutions designed around real workflows and customer lifecycle management.</p>
+        </div>
+
+        <div class="service-card group bg-white p-10 cursor-pointer transition-all relative overflow-hidden border-2 border-slate-200 hover:border-blue-300">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-blue-50 transition-all icon-bg"></div>
+          <div class="absolute top-8 right-8 text-7xl font-light opacity-10 select-none">04</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-gradient-to-br from-blue-100 to-cyan-100 relative z-10 icon-bg">
+            <i data-lucide="database" class="w-8 h-8 text-blue-700" stroke-width="1.5"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-slate-900 relative z-10">Analytics & Reporting</h3>
+          <p class="leading-relaxed text-slate-600 relative z-10">Dashboards, KPIs, and forecasting models for data-driven decisions.</p>
+        </div>
+
+        <div class="service-card group bg-white p-10 cursor-pointer transition-all relative overflow-hidden border-2 border-slate-200 hover:border-blue-300">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-blue-50 transition-all icon-bg"></div>
+          <div class="absolute top-8 right-8 text-7xl font-light opacity-10 select-none">05</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-gradient-to-br from-blue-100 to-cyan-100 relative z-10 icon-bg">
+            <i data-lucide="shopping-cart" class="w-8 h-8 text-blue-700" stroke-width="1.5"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-slate-900 relative z-10">B2B & B2C eCommerce</h3>
+          <p class="leading-relaxed text-slate-600 relative z-10">Scalable digital commerce with real-time pricing and inventory visibility.</p>
+        </div>
+
+        <div class="service-card group bg-white p-10 cursor-pointer transition-all relative overflow-hidden border-2 border-slate-200 hover:border-blue-300">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-blue-50 transition-all icon-bg"></div>
+          <div class="absolute top-8 right-8 text-7xl font-light opacity-10 select-none">06</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-gradient-to-br from-blue-100 to-cyan-100 relative z-10 icon-bg">
+            <i data-lucide="settings" class="w-8 h-8 text-blue-700" stroke-width="1.5"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-slate-900 relative z-10">Managed Services & Support</h3>
+          <p class="leading-relaxed text-slate-600 relative z-10">Ongoing support, system optimization, and operational continuity.</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="consulting.html" class="inline-flex items-center gap-3 border-2 border-slate-900 px-12 py-5 hover:bg-slate-900 hover:text-white transition-all bg-white">
+          <span class="font-medium text-lg">View All Services</span>
+          <i data-lucide="arrow-right" class="w-6 h-6" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION -->
+  <section class="py-40 px-6 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-7xl md:text-8xl font-light mb-16 leading-tight">
+          Solutions Integrated.<br />Data Delivered.
+        </h2>
+
+        <div class="max-w-3xl mx-auto space-y-8">
+          <p class="text-2xl text-slate-300 leading-relaxed border-l-2 border-white pl-8 text-left font-light">
+            Disconnected systems create inefficiencies. We build unified ecosystems that streamline workflows, eliminate manual processes, and provide real-time visibility across your business.
+          </p>
+
+          <p class="text-xl text-slate-400">
+            Our focus is on delivering measurable outcomes—not just deploying technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF / RESULTS -->
+  <section class="py-32 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20">
+        <div class="text-sm uppercase tracking-wider text-slate-500 mb-6">Results</div>
+        <h2 class="text-7xl font-light text-slate-900 leading-tight">
+          Connected Systems.<br />Real Results.
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-24">
+        <div>
+          <p class="text-3xl text-slate-700 leading-relaxed mb-10 font-light">
+            Every organization operates differently. We design solutions tailored to your workflows, ensuring efficiency, scalability, and long-term performance.
+          </p>
+
+          <p class="text-xl text-slate-600 leading-relaxed pl-8 border-l-2 border-slate-300">
+            With over 15 years of combined SYSPRO expertise, we integrate ERP, CRM, eCommerce, and analytics into a single, high-performing ecosystem.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border-2 border-slate-200 p-10 hover:border-slate-900 transition-colors">
+            <i data-lucide="users" class="w-10 h-10 mb-6 text-slate-700" stroke-width="1.5"></i>
+            <div class="text-4xl font-light mb-3">Manufacturing</div>
+            <div class="text-sm uppercase tracking-wider text-slate-600">Operations</div>
+          </div>
+          <div class="border-2 border-slate-200 p-10 hover:border-slate-900 transition-colors">
+            <i data-lucide="globe" class="w-10 h-10 mb-6 text-slate-700" stroke-width="1.5"></i>
+            <div class="text-4xl font-light mb-3">Distribution</div>
+            <div class="text-sm uppercase tracking-wider text-slate-600">Networks</div>
+          </div>
+          <div class="border-2 border-slate-200 p-10 hover:border-slate-900 transition-colors col-span-2">
+            <i data-lucide="award" class="w-10 h-10 mb-6 text-slate-700" stroke-width="1.5"></i>
+            <div class="text-4xl font-light mb-3">Proven Track Record</div>
+            <div class="text-sm uppercase tracking-wider text-slate-600">Client Success Stories</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <a href="about.html" class="group inline-flex items-center gap-3 border-b-2 border-slate-900 pb-2 hover:gap-5 transition-all">
+          <span class="font-medium text-slate-900 text-lg">See Client Success Stories</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-slate-900" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTING PREVIEW -->
+  <section class="py-32 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-24">
+        <div>
+          <div class="text-sm uppercase tracking-wider text-slate-500 mb-8">Consulting</div>
+          <h2 class="text-6xl font-light text-slate-900 mb-10 leading-tight">
+            Strategic Advisory for<br />Enterprise Systems
+          </h2>
+          <p class="text-2xl text-slate-700 leading-relaxed mb-12 font-light">
+            We help organizations evaluate systems, identify inefficiencies, and define clear, execution-ready roadmaps—ensuring every investment delivers measurable value.
+          </p>
+          <a href="consulting.html" class="group inline-flex items-center gap-3 bg-slate-900 text-white px-10 py-5 hover:bg-slate-800 transition-all">
+            <span class="font-medium text-lg">Start a Consulting Engagement</span>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" stroke-width="1.5"></i>
+          </a>
+        </div>
+
+        <div class="space-y-2">
+          <div class="group flex items-center gap-6 bg-white border-2 border-slate-200 p-8 hover:border-slate-900 transition-all cursor-pointer">
+            <div class="text-5xl font-light text-slate-200 group-hover:text-slate-400 transition-colors">01</div>
+            <div class="flex-1 text-lg font-medium text-slate-700 group-hover:text-slate-900 transition-colors">ERP & Digital Transformation Strategy</div>
+            <i data-lucide="check" class="w-6 h-6 text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity" stroke-width="2"></i>
+          </div>
+          <div class="group flex items-center gap-6 bg-white border-2 border-slate-200 p-8 hover:border-slate-900 transition-all cursor-pointer">
+            <div class="text-5xl font-light text-slate-200 group-hover:text-slate-400 transition-colors">02</div>
+            <div class="flex-1 text-lg font-medium text-slate-700 group-hover:text-slate-900 transition-colors">CRM & Customer Lifecycle Design</div>
+            <i data-lucide="check" class="w-6 h-6 text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity" stroke-width="2"></i>
+          </div>
+          <div class="group flex items-center gap-6 bg-white border-2 border-slate-200 p-8 hover:border-slate-900 transition-all cursor-pointer">
+            <div class="text-5xl font-light text-slate-200 group-hover:text-slate-400 transition-colors">03</div>
+            <div class="flex-1 text-lg font-medium text-slate-700 group-hover:text-slate-900 transition-colors">eCommerce Strategy & Enablement</div>
+            <i data-lucide="check" class="w-6 h-6 text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity" stroke-width="2"></i>
+          </div>
+          <div class="group flex items-center gap-6 bg-white border-2 border-slate-200 p-8 hover:border-slate-900 transition-all cursor-pointer">
+            <div class="text-5xl font-light text-slate-200 group-hover:text-slate-400 transition-colors">04</div>
+            <div class="flex-1 text-lg font-medium text-slate-700 group-hover:text-slate-900 transition-colors">Process Optimization & Mapping</div>
+            <i data-lucide="check" class="w-6 h-6 text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity" stroke-width="2"></i>
+          </div>
+          <div class="group flex items-center gap-6 bg-white border-2 border-slate-200 p-8 hover:border-slate-900 transition-all cursor-pointer">
+            <div class="text-5xl font-light text-slate-200 group-hover:text-slate-400 transition-colors">05</div>
+            <div class="flex-1 text-lg font-medium text-slate-700 group-hover:text-slate-900 transition-colors">Data Strategy & Reporting</div>
+            <i data-lucide="check" class="w-6 h-6 text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity" stroke-width="2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT SECTION -->
+  <section class="py-32 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-24 items-center">
+        <div>
+          <div class="text-sm uppercase tracking-wider text-slate-500 mb-8">Support</div>
+          <h2 class="text-6xl font-light text-slate-900 mb-10 leading-tight">
+            Reliable Support for<br />Critical Systems
+          </h2>
+          <p class="text-2xl text-slate-700 leading-relaxed font-light">
+            We provide structured, proactive support to ensure your ERP, CRM, and eCommerce platforms remain stable, secure, and continuously optimized.
+          </p>
+          <div class="mt-12 inline-flex items-center gap-6 border-2 border-slate-900 px-10 py-6 bg-white">
+            <div class="text-6xl font-light text-slate-900">24/7</div>
+            <div>
+              <div class="text-sm uppercase tracking-wider text-slate-600">Available</div>
+              <div class="font-medium text-slate-900">Support</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 bg-slate-200">
+          <div class="bg-white p-8 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group">
+            <div class="text-4xl font-light text-slate-200 group-hover:text-slate-700 mb-4 transition-colors">01</div>
+            <p class="text-sm font-medium leading-relaxed">Platform Support (SYSPRO, Salesforce, nopCommerce)</p>
+          </div>
+          <div class="bg-white p-8 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group">
+            <div class="text-4xl font-light text-slate-200 group-hover:text-slate-700 mb-4 transition-colors">02</div>
+            <p class="text-sm font-medium leading-relaxed">Maintenance & Performance Optimization</p>
+          </div>
+          <div class="bg-white p-8 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group">
+            <div class="text-4xl font-light text-slate-200 group-hover:text-slate-700 mb-4 transition-colors">03</div>
+            <p class="text-sm font-medium leading-relaxed">Integration Monitoring & Issue Resolution</p>
+          </div>
+          <div class="bg-white p-8 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group">
+            <div class="text-4xl font-light text-slate-200 group-hover:text-slate-700 mb-4 transition-colors">04</div>
+            <p class="text-sm font-medium leading-relaxed">User Training & Documentation</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <a href="support.html" class="group inline-flex items-center gap-3 border-b-2 border-slate-900 pb-2 hover:gap-5 transition-all">
+          <span class="font-medium text-slate-900 text-lg">Get Support</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-slate-900" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTSOURCING SECTION -->
+  <section class="py-40 px-6 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20">
+        <div class="text-sm uppercase tracking-wider text-slate-500 mb-8">Outsourcing</div>
+        <h2 class="text-7xl font-light mb-10 leading-tight">
+          Operational Execution<br />with System Expertise
+        </h2>
+        <p class="text-2xl text-slate-300 leading-relaxed max-w-3xl">
+          Our outsourcing services are embedded directly within your enterprise systems—ensuring accuracy, efficiency, and transparency.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2 bg-slate-800">
+        <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
+          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">01</div>
+          <div class="text-xl font-medium leading-relaxed">Accounts Payable & Receivable</div>
+        </div>
+        <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
+          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">02</div>
+          <div class="text-xl font-medium leading-relaxed">Sales/Purchase Order Processing</div>
+        </div>
+        <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
+          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">03</div>
+          <div class="text-xl font-medium leading-relaxed">Work In Progress (WIP)</div>
+        </div>
+        <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
+          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">04</div>
+          <div class="text-xl font-medium leading-relaxed">Bill of Material Setup</div>
+        </div>
+        <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
+          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">05</div>
+          <div class="text-xl font-medium leading-relaxed">Forecasting & Analytics</div>
+        </div>
+        <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
+          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">06</div>
+          <div class="text-xl font-medium leading-relaxed">eCommerce Backend Operations</div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <a href="outsourcing.html" class="group inline-flex items-center gap-3 border-b-2 border-white pb-2 hover:gap-5 transition-all">
+          <span class="font-medium text-lg">Explore Outsourcing Services</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-white" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="py-32 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20">
+        <div class="text-sm uppercase tracking-wider text-slate-500 mb-6">Industries</div>
+        <h2 class="text-7xl font-light text-slate-900 leading-tight mb-10">
+          Industry-Aligned<br />Solutions
+        </h2>
+        <p class="text-2xl text-slate-600 max-w-3xl font-light">
+          Tailored systems designed for industry-specific workflows, compliance requirements, and operational complexity.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 mb-16">
+        <div class="bg-white p-10 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group relative">
+          <div class="absolute bottom-6 right-6 text-8xl font-light text-slate-100 group-hover:text-slate-800 transition-colors">01</div>
+          <div class="relative z-10 text-lg font-medium">Aerospace OEM & MRO</div>
+        </div>
+        <div class="bg-white p-10 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group relative">
+          <div class="absolute bottom-6 right-6 text-8xl font-light text-slate-100 group-hover:text-slate-800 transition-colors">02</div>
+          <div class="relative z-10 text-lg font-medium">Automotive, Marine & RV</div>
+        </div>
+        <div class="bg-white p-10 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group relative">
+          <div class="absolute bottom-6 right-6 text-8xl font-light text-slate-100 group-hover:text-slate-800 transition-colors">03</div>
+          <div class="relative z-10 text-lg font-medium">Fabrication & Manufacturing</div>
+        </div>
+        <div class="bg-white p-10 hover:bg-slate-900 hover:text-white transition-all cursor-pointer group relative">
+          <div class="absolute bottom-6 right-6 text-8xl font-light text-slate-100 group-hover:text-slate-800 transition-colors">04</div>
+          <div class="relative z-10 text-lg font-medium">Healthcare & Pharmaceuticals</div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="industries.html" class="inline-flex items-center gap-3 border-2 border-slate-900 px-12 py-5 hover:bg-slate-900 hover:text-white transition-all bg-white">
+          <span class="font-medium text-lg">View Industry Solutions</span>
+          <i data-lucide="arrow-right" class="w-6 h-6" stroke-width="1.5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-40 px-6 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 border-t border-slate-200 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0" style="background-image: linear-gradient(to right, #1e40af 1px, transparent 1px), linear-gradient(to bottom, #1e40af 1px, transparent 1px); background-size: 100px 100px;"></div>
+    </div>
+    <div class="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border-2 border-blue-200 rounded-full opacity-30"></div>
+
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full mb-8">
+        <i data-lucide="sparkles" class="w-4 h-4" stroke-width="2"></i>
+        <span class="text-sm font-semibold uppercase tracking-wider">Get Started Today</span>
+      </div>
+
+      <h2 class="text-7xl md:text-8xl font-light text-slate-900 mb-12 leading-tight">
+        Build Systems That<br />
+        <span class="font-semibold bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">Work—Together</span>
+      </h2>
+
+      <p class="text-3xl text-slate-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+        Align your ERP, CRM, and eCommerce platforms into a unified, scalable ecosystem designed for performance and growth.
+      </p>
+
+      <div class="flex items-center justify-center gap-4 mb-16">
+        <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-blue-200 rounded-full">
+          <i data-lucide="check" class="w-4 h-4 text-blue-600" stroke-width="2"></i>
+          <span class="text-sm font-medium text-slate-700">Free Consultation</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-blue-200 rounded-full">
+          <i data-lucide="check" class="w-4 h-4 text-blue-600" stroke-width="2"></i>
+          <span class="text-sm font-medium text-slate-700">No Obligation</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-blue-200 rounded-full">
+          <i data-lucide="check" class="w-4 h-4 text-blue-600" stroke-width="2"></i>
+          <span class="text-sm font-medium text-slate-700">24h Response</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="contact.html" class="group flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-14 py-6 hover:shadow-2xl hover:shadow-blue-500/40 transition-all font-semibold text-xl">
+          Book a Consultation
+          <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-1 transition-transform" stroke-width="2"></i>
+        </a>
+        <a href="contact.html" class="flex items-center justify-center gap-3 border-2 border-slate-900 px-14 py-6 hover:bg-slate-900 hover:text-white transition-all bg-white font-semibold text-xl">
+          Contact Our Team
+          <i data-lucide="arrow-right" class="w-6 h-6" stroke-width="2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="text-2xl font-medium text-gray-900 mb-6">ASAA Solutions</div>
+          <p class="text-gray-600 leading-relaxed max-w-sm">Building connected enterprise ecosystems that drive real business performance.</p>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <div class="text-sm uppercase tracking-wider text-gray-500 mb-6">Company</div>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-gray-700 hover:text-gray-900 transition-colors">About</a></li>
+            <li><a href="contact.html" class="text-gray-700 hover:text-gray-900 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <div class="text-sm uppercase tracking-wider text-gray-500 mb-6">Services</div>
+          <ul class="space-y-3">
+            <li><a href="consulting.html" class="text-gray-700 hover:text-gray-900 transition-colors">Consulting</a></li>
+            <li><a href="support.html" class="text-gray-700 hover:text-gray-900 transition-colors">Support</a></li>
+            <li><a href="outsourcing.html" class="text-gray-700 hover:text-gray-900 transition-colors">Outsourcing</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div>
+          <div class="text-sm uppercase tracking-wider text-gray-500 mb-6">Solutions</div>
+          <ul class="space-y-3">
+            <li><a href="industries.html" class="text-gray-700 hover:text-gray-900 transition-colors">Industries</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-gray-200">
+        <div class="text-sm text-gray-600">© 2026 ASAA Solutions. All rights reserved.</div>
+        <div class="flex items-center gap-6">
+          <a href="mailto:info@asaasolutions.com" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+            <i data-lucide="mail" class="w-5 h-5" stroke-width="1.5"></i>
+            <span class="text-sm">Email</span>
+          </a>
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+            <i data-lucide="linkedin" class="w-5 h-5" stroke-width="1.5"></i>
+            <span class="text-sm">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

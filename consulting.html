@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting | ASAA Solutions</title>
+  <meta name="description" content="Strategic advisory for enterprise systems and operational excellence. Evaluate systems, optimize processes, and map out transformational pathways.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            primary: {
+              DEFAULT: 'var(--primary)',
+              foreground: 'var(--primary-foreground)',
+            },
+            secondary: {
+              DEFAULT: 'var(--secondary)',
+              foreground: 'var(--secondary-foreground)',
+            },
+            muted: {
+              DEFAULT: 'var(--muted)',
+              foreground: 'var(--muted-foreground)',
+            },
+            accent: {
+              DEFAULT: 'var(--accent)',
+              foreground: 'var(--accent-foreground)',
+            },
+            border: 'var(--border)',
+            input: 'var(--input)',
+            ring: 'var(--ring)',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            lg: 'var(--radius)',
+            md: 'calc(var(--radius) - 2px)',
+            sm: 'calc(var(--radius) - 4px)',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-white">
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-6">
+    <div class="max-w-7xl mx-auto">
+      <nav class="bg-white/80 backdrop-blur-xl rounded-full px-8 py-4 border border-slate-200/70 shadow-xl shadow-slate-200/50">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="group">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="sparkles" class="w-5 h-5 text-white" stroke-width="2"></i>
+              </div>
+              <div>
+                <div class="text-lg font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">
+                  ASAA Solutions
+                </div>
+                <div class="text-xs text-slate-500 font-medium">Enterprise Systems</div>
+              </div>
+            </div>
+          </a>
+
+          <ul class="hidden lg:flex items-center gap-1">
+            <li><a href="index.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Home</a></li>
+            <li><a href="about.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">About</a></li>
+            <li><a href="consulting.html" class="px-6 py-2.5 rounded-full transition-all font-medium bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/50 scale-105">Consulting</a></li>
+            <li><a href="support.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Support</a></li>
+            <li><a href="outsourcing.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Outsourcing</a></li>
+            <li><a href="industries.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Industries</a></li>
+            <li><a href="contact.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Contact</a></li>
+          </ul>
+
+
+          <div class="lg:hidden flex items-center gap-3">
+            <button id="mobile-menu-btn" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+              <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-6">
+    <div class="bg-white w-full max-w-md rounded-3xl p-8 border border-slate-200 shadow-2xl relative">
+      <button id="mobile-menu-close-btn" class="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors">
+        <i data-lucide="x" class="w-6 h-6 text-slate-700"></i>
+      </button>
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
+          <i data-lucide="sparkles" class="w-5 h-5 text-white" stroke-width="2"></i>
+        </div>
+        <div>
+          <div class="text-lg font-semibold text-slate-900">ASAA Solutions</div>
+          <div class="text-xs text-slate-500 font-medium">Enterprise Systems</div>
+        </div>
+      </div>
+      <ul class="flex flex-col gap-3 mb-8">
+        <li><a href="index.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Home</a></li>
+        <li><a href="about.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">About</a></li>
+        <li><a href="consulting.html" class="block px-6 py-3 rounded-2xl bg-blue-50 text-blue-700 transition-colors font-medium">Consulting</a></li>
+        <li><a href="support.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Support</a></li>
+        <li><a href="outsourcing.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Outsourcing</a></li>
+        <li><a href="industries.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Industries</a></li>
+        <li><a href="contact.html" class="block px-6 py-3 rounded-2xl text-slate-600 hover:text-blue-700 hover:bg-slate-50 transition-colors font-medium">Contact</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center px-6 pt-32 bg-gradient-to-br from-teal-50 to-emerald-50">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="max-w-5xl">
+        <div class="text-sm uppercase tracking-wider text-teal-700 mb-6 font-medium">Strategic Consulting Services</div>
+        <h1 class="text-7xl md:text-8xl lg:text-9xl font-light leading-[0.95] mb-10 text-slate-900">Consulting</h1>
+        <div class="w-24 h-1 bg-teal-600 mb-12"></div>
+        <p class="text-3xl text-slate-700 leading-relaxed font-light max-w-3xl">
+          Strategic advisory for enterprise systems and operational excellence
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-32 px-6 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-24">
+        <div>
+          <div class="text-sm uppercase tracking-wider text-teal-700 mb-8 font-medium">Our Approach</div>
+          <h2 class="text-6xl font-light text-slate-900 leading-tight">
+            Insight-Driven<br />Consulting
+          </h2>
+        </div>
+        <div class="space-y-8 text-xl text-slate-700 leading-relaxed">
+          <p class="border-l-4 border-teal-600 pl-8">
+            ASAA Solutions delivers practical, insight-driven consulting services for manufacturing and distribution organizations seeking clarity before investing in technology or process transformation.
+          </p>
+          <p>
+            We collaborate closely with leadership and operational stakeholders to evaluate current-state systems, identify inefficiencies and gaps, and design clear, execution-ready roadmaps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-32 px-6 bg-teal-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20">
+        <div class="text-sm uppercase tracking-wider text-teal-700 mb-6 font-medium">Services</div>
+        <h2 class="text-6xl font-light text-slate-900 leading-tight">What We Consult On</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-teal-200">
+        <div class="bg-white p-10 hover:bg-teal-600 hover:text-white transition-all group relative">
+          <div class="absolute top-8 right-8 text-7xl font-light text-teal-100 group-hover:text-teal-500">01</div>
+          <i data-lucide="bar-chart-3" class="w-10 h-10 mb-6 relative z-10 group-hover:text-white text-teal-600" stroke-width="1.5"></i>
+          <h3 class="text-xl font-medium mb-3 relative z-10 group-hover:text-white text-slate-900">ERP and Digital Transformation Strategy</h3>
+          <p class="relative z-10 leading-relaxed group-hover:text-teal-100 text-slate-600">SYSPRO Readiness, Upgrades, Re-Implementations</p>
+        </div>
+        <div class="bg-white p-10 hover:bg-teal-600 hover:text-white transition-all group relative">
+          <div class="absolute top-8 right-8 text-7xl font-light text-teal-100 group-hover:text-teal-500">02</div>
+          <i data-lucide="users" class="w-10 h-10 mb-6 relative z-10 group-hover:text-white text-teal-600" stroke-width="1.5"></i>
+          <h3 class="text-xl font-medium mb-3 relative z-10 group-hover:text-white text-slate-900">CRM and End-to-End Customer Lifecycle Strategy</h3>
+          <p class="relative z-10 leading-relaxed group-hover:text-teal-100 text-slate-600">Complete customer journey optimization</p>
+        </div>
+        <div class="bg-white p-10 hover:bg-teal-600 hover:text-white transition-all group relative">
+          <div class="absolute top-8 right-8 text-7xl font-light text-teal-100 group-hover:text-teal-500">03</div>
+          <i data-lucide="shopping-bag" class="w-10 h-10 mb-6 relative z-10 group-hover:text-white text-teal-600" stroke-width="1.5"></i>
+          <h3 class="text-xl font-medium mb-3 relative z-10 group-hover:text-white text-slate-900">B2B and B2C eCommerce Strategy</h3>
+          <p class="relative z-10 leading-relaxed group-hover:text-teal-100 text-slate-600">Digital commerce enablement</p>
+        </div>
+        <div class="bg-white p-10 hover:bg-teal-600 hover:text-white transition-all group relative">
+          <div class="absolute top-8 right-8 text-7xl font-light text-teal-100 group-hover:text-teal-500">04</div>
+          <i data-lucide="file-text" class="w-10 h-10 mb-6 relative z-10 group-hover:text-white text-teal-600" stroke-width="1.5"></i>
+          <h3 class="text-xl font-medium mb-3 relative z-10 group-hover:text-white text-slate-900">Business Process Mapping</h3>
+          <p class="relative z-10 leading-relaxed group-hover:text-teal-100 text-slate-600">Workflow optimization and documentation</p>
+        </div>
+        <div class="bg-white p-10 hover:bg-teal-600 hover:text-white transition-all group relative">
+          <div class="absolute top-8 right-8 text-7xl font-light text-teal-100 group-hover:text-teal-500">05</div>
+          <i data-lucide="database" class="w-10 h-10 mb-6 relative z-10 group-hover:text-white text-teal-600" stroke-width="1.5"></i>
+          <h3 class="text-xl font-medium mb-3 relative z-10 group-hover:text-white text-slate-900">Reporting Frameworks & Data Strategy</h3>
+          <p class="relative z-10 leading-relaxed group-hover:text-teal-100 text-slate-600">KPIs and analytics implementation</p>
+        </div>
+        <div class="bg-white p-10 hover:bg-teal-600 hover:text-white transition-all group relative">
+          <div class="absolute top-8 right-8 text-7xl font-light text-teal-100 group-hover:text-teal-500">06</div>
+          <i data-lucide="cog" class="w-10 h-10 mb-6 relative z-10 group-hover:text-white text-teal-600" stroke-width="1.5"></i>
+          <h3 class="text-xl font-medium mb-3 relative z-10 group-hover:text-white text-slate-900">Custom Applications</h3>
+          <p class="relative z-10 leading-relaxed group-hover:text-teal-100 text-slate-600">Ucass, Ritescan, Traild, DDX, Docparser</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-teal-900 text-white">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-6xl font-light mb-10 leading-tight">Ready to Transform<br />Your Operations?</h2>
+      <div class="w-24 h-1 bg-teal-400 mx-auto mb-12"></div>
+      <p class="text-2xl text-teal-100 mb-16 max-w-3xl mx-auto leading-relaxed">
+        Let's discuss how our consulting services can drive your success
+      </p>
+      <a href="contact.html" class="group inline-flex items-center gap-3 bg-white text-teal-900 px-14 py-6 hover:bg-teal-50 transition-all text-xl font-medium">
+        Schedule a Consultation
+        <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-1 transition-transform" stroke-width="1.5"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="text-2xl font-medium text-gray-900 mb-6">ASAA Solutions</div>
+          <p class="text-gray-600 leading-relaxed max-w-sm">Building connected enterprise ecosystems that drive real business performance.</p>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <div class="text-sm uppercase tracking-wider text-gray-500 mb-6">Company</div>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-gray-700 hover:text-gray-900 transition-colors">About</a></li>
+            <li><a href="contact.html" class="text-gray-700 hover:text-gray-900 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <div class="text-sm uppercase tracking-wider text-gray-500 mb-6">Services</div>
+          <ul class="space-y-3">
+            <li><a href="consulting.html" class="text-gray-700 hover:text-gray-900 transition-colors">Consulting</a></li>
+            <li><a href="support.html" class="text-gray-700 hover:text-gray-900 transition-colors">Support</a></li>
+            <li><a href="outsourcing.html" class="text-gray-700 hover:text-gray-900 transition-colors">Outsourcing</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div>
+          <div class="text-sm uppercase tracking-wider text-gray-500 mb-6">Solutions</div>
+          <ul class="space-y-3">
+            <li><a href="industries.html" class="text-gray-700 hover:text-gray-900 transition-colors">Industries</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-gray-200">
+        <div class="text-sm text-gray-600">© 2026 ASAA Solutions. All rights reserved.</div>
+        <div class="flex items-center gap-6">
+          <a href="mailto:info@asaasolutions.com" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+            <i data-lucide="mail" class="w-5 h-5" stroke-width="1.5"></i>
+            <span class="text-sm">Email</span>
+          </a>
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+            <i data-lucide="linkedin" class="w-5 h-5" stroke-width="1.5"></i>
+            <span class="text-sm">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
