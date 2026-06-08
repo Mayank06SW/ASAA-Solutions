@@ -72,7 +72,7 @@
           </a>
 
           <ul class="hidden lg:flex items-center gap-1">
-            <li><a href="index.html" class="px-6 py-2.5 rounded-full transition-all font-medium bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/50 scale-105">Home</a></li>
+            <li><a href="index.html" class="px-6 py-2.5 rounded-full transition-all font-medium bg-slate-900 text-white hover:bg-slate-800 shadow-sm scale-105">Home</a></li>
             <li><a href="about.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">About</a></li>
             <li><a href="consulting.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Consulting</a></li>
             <li><a href="support.html" class="px-6 py-2.5 rounded-full transition-all font-medium text-slate-600 hover:text-blue-700 hover:bg-slate-100">Support</a></li>
@@ -123,14 +123,12 @@
   </div>
 
   <!-- HERO SECTION -->
-  <section class="min-h-screen flex items-center px-6 pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
-    <div class="absolute inset-0 opacity-[0.03]">
+  <section class="min-h-screen flex items-center px-6 pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/20 to-slate-50">
+    <div class="absolute inset-0 opacity-[0.02]">
       <div class="absolute inset-0" style="background-image: linear-gradient(to right, #1e40af 1px, transparent 1px), linear-gradient(to bottom, #1e40af 1px, transparent 1px); background-size: 80px 80px;"></div>
     </div>
     <div class="absolute top-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-20 left-20 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/2 right-1/3 w-64 h-64 border-2 border-blue-200 rounded-full opacity-50"></div>
-    <div class="absolute bottom-1/3 left-1/4 w-48 h-48 border-2 border-cyan-200 opacity-40"></div>
 
     <div class="max-w-7xl mx-auto w-full relative z-10">
       <div class="grid lg:grid-cols-2 gap-20 items-center">
@@ -189,43 +187,48 @@
           </div>
         </div>
 
-        <!-- Icon Grid -->
-        <div class="hidden lg:grid grid-cols-3 gap-6">
-          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-              <i data-lucide="building-2" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+        <!-- Icon Grid Wrapper with Connecting Circle -->
+        <div class="hidden lg:block relative">
+          <!-- Connecting Background Circle -->
+          <div class="absolute inset-0 m-auto w-[460px] h-[460px] border-2 border-dashed border-blue-300/40 rounded-full pointer-events-none -z-10"></div>
+          
+          <div class="grid grid-cols-3 gap-6">
+            <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <i data-lucide="building-2" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+              </div>
+              <div class="text-sm font-semibold text-slate-700">ERP</div>
             </div>
-            <div class="text-sm font-semibold text-slate-700">ERP</div>
-          </div>
-          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-              <i data-lucide="users" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-cyan-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <i data-lucide="users" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+              </div>
+              <div class="text-sm font-semibold text-slate-700">CRM</div>
             </div>
-            <div class="text-sm font-semibold text-slate-700">CRM</div>
-          </div>
-          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-              <i data-lucide="shopping-cart" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <i data-lucide="shopping-cart" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+              </div>
+              <div class="text-sm font-semibold text-slate-700">eCommerce</div>
             </div>
-            <div class="text-sm font-semibold text-slate-700">eCommerce</div>
-          </div>
-          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-700 to-cyan-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-              <i data-lucide="database" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-700 to-cyan-700 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <i data-lucide="database" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+              </div>
+              <div class="text-sm font-semibold text-slate-700">Analytics</div>
             </div>
-            <div class="text-sm font-semibold text-slate-700">Analytics</div>
-          </div>
-          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-              <i data-lucide="zap" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <i data-lucide="zap" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+              </div>
+              <div class="text-sm font-semibold text-slate-700">Integration</div>
             </div>
-            <div class="text-sm font-semibold text-slate-700">Integration</div>
-          </div>
-          <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-              <i data-lucide="settings" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+            <div class="group relative bg-white p-8 border-2 border-slate-200 hover:border-blue-500 rounded-2xl hover:shadow-2xl transition-all cursor-pointer">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <i data-lucide="settings" class="w-8 h-8 text-white" stroke-width="1.5"></i>
+              </div>
+              <div class="text-sm font-semibold text-slate-700">Support</div>
             </div>
-            <div class="text-sm font-semibold text-slate-700">Support</div>
           </div>
         </div>
       </div>
@@ -585,27 +588,39 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2 bg-slate-800">
         <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
-          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">01</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-slate-800 text-blue-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <i data-lucide="file-spreadsheet" class="w-8 h-8" stroke-width="1.5"></i>
+          </div>
           <div class="text-xl font-medium leading-relaxed">Accounts Payable & Receivable</div>
         </div>
         <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
-          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">02</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-slate-800 text-blue-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <i data-lucide="shopping-cart" class="w-8 h-8" stroke-width="1.5"></i>
+          </div>
           <div class="text-xl font-medium leading-relaxed">Sales/Purchase Order Processing</div>
         </div>
         <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
-          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">03</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-slate-800 text-blue-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <i data-lucide="factory" class="w-8 h-8" stroke-width="1.5"></i>
+          </div>
           <div class="text-xl font-medium leading-relaxed">Work In Progress (WIP)</div>
         </div>
         <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
-          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">04</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-slate-800 text-blue-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <i data-lucide="layers" class="w-8 h-8" stroke-width="1.5"></i>
+          </div>
           <div class="text-xl font-medium leading-relaxed">Bill of Material Setup</div>
         </div>
         <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
-          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">05</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-slate-800 text-blue-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <i data-lucide="trending-up" class="w-8 h-8" stroke-width="1.5"></i>
+          </div>
           <div class="text-xl font-medium leading-relaxed">Forecasting & Analytics</div>
         </div>
         <div class="bg-slate-900 p-10 border border-slate-800 hover:bg-white hover:text-slate-900 transition-all cursor-pointer group">
-          <div class="text-5xl font-light text-slate-800 group-hover:text-slate-200 mb-6 transition-colors">06</div>
+          <div class="inline-flex p-4 rounded-xl mb-6 bg-slate-800 text-blue-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <i data-lucide="shopping-bag" class="w-8 h-8" stroke-width="1.5"></i>
+          </div>
           <div class="text-xl font-medium leading-relaxed">eCommerce Backend Operations</div>
         </div>
       </div>
