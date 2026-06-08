@@ -5,36 +5,36 @@
   --font-size: 14.8px;
   --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --background: #f8faff;
-  --foreground: #050b2c;
+  --foreground: #0f2d59;
   --card: rgba(255, 255, 255, 0.85);
-  --card-foreground: #050b2c;
+  --card-foreground: #0f2d59;
   --popover: rgba(255, 255, 255, 0.9);
-  --popover-foreground: #050b2c;
-  --primary: #005bea;
+  --popover-foreground: #0f2d59;
+  --primary: #0f2d59;
   --primary-foreground: #ffffff;
-  --secondary: rgba(224, 242, 254, 0.8);
-  --secondary-foreground: #0369a1;
+  --secondary: rgba(204, 251, 241, 0.8);
+  --secondary-foreground: #0d9488;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
-  --accent: rgba(186, 230, 253, 0.5);
-  --accent-foreground: #0369a1;
+  --accent: rgba(224, 242, 254, 0.5);
+  --accent-foreground: #0ea5e9;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 91, 234, 0.1);
+  --border: rgba(15, 45, 89, 0.1);
   --input: transparent;
   --input-background: rgba(255, 255, 255, 0.8);
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: rgba(0, 91, 234, 0.3);
+  --ring: rgba(15, 45, 89, 0.3);
   --radius: 1.25rem;
   
   --glass-background: rgba(255, 255, 255, 0.65);
   --glass-border: rgba(255, 255, 255, 0.2);
   --glass-blur: 12px;
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --gradient-blue: linear-gradient(135deg, #005bea, #00c6fb);
-  --gradient-energy: linear-gradient(135deg, #ffa53d, #ff7e00);
+  --gradient-blue: linear-gradient(135deg, #0f2d59, #0ea5e9);
+  --gradient-energy: linear-gradient(135deg, #0d9488, #0ea5e9);
   --depth-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --depth-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
   --depth-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
@@ -52,7 +52,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-family);
   background-image: 
-    radial-gradient(ellipse at top, rgba(0, 91, 234, 0.05), transparent 50%),
+    radial-gradient(ellipse at top, rgba(15, 45, 89, 0.05), transparent 50%),
     radial-gradient(ellipse at bottom, rgba(14, 165, 233, 0.05), transparent 50%);
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -106,11 +106,11 @@ body {
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .service-card:hover {
-  background: linear-gradient(135deg, #005bea, #00c6fb);
+  background: linear-gradient(135deg, #0f2d59, #0ea5e9);
   color: white !important;
   border-color: transparent;
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 20px 30px rgba(0, 91, 234, 0.25);
+  box-shadow: 0 20px 30px rgba(15, 45, 89, 0.25);
 }
 .service-card:hover * {
   color: white !important;
