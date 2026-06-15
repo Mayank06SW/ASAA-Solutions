@@ -18,5 +18,6 @@
 !*.jpg
 !*.jpeg
 !*.gif
+!*.webp
 !.gitignore
 
